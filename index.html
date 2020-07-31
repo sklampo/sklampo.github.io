@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <style>
+      .u-hidden {
+        display: none;
+      }
+    </style>
+  </head>
   <body>
     <header>
       <h1>A page of encouragement!</h1>
     </header>
     <main>
-      <img src="images/A-Team thumbs up ignazio D.jpg">
-      <img src="images/Dwayne the thumb johnson .jpg">
-      <img src="images/Glad Pitt.jpeg">
-      <img src="images/Hansololaser thumb.jpg">
-      <img src="images/Hansoloprofilethumb.jpg">
-      <img src="images/connery morgan l.jpg">
-      <img src="images/thumb-up-terminator+pablo+M+R.jpg">
+      <div>
+        <img data-component="encouragement" src="images/A-Team thumbs up ignazio D.jpg">
+        <img data-component="encouragement" src="images/Dwayne the thumb johnson .jpg">
+        <img data-component="encouragement" src="images/Glad Pitt.jpeg">
+        <img data-component="encouragement" src="images/Hansololaser thumb.jpg">
+        <img data-component="encouragement" src="images/Hansoloprofilethumb.jpg">
+        <img data-component="encouragement" src="images/connery morgan l.jpg">
+        <img data-component="encouragement" src="images/thumb-up-terminator+pablo+M+R.jpg">
+      </div>
     </main>
+    <script>
+      const encouragementImages = document.querySelectorAll('[data-component="encouragement"]');
+      const winnerIndex = Math.floor(Math.random() * encouragementImages.length);
+      let i = 0;
+
+      [].forEach.call(encouragementImages, (image) => {
+          if (i !== winnerIndex) {
+            image.classList.add('u-hidden');
+          }
+          i++;
+      });
+    </script>
   </body>
 </html>
